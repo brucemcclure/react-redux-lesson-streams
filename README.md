@@ -74,10 +74,21 @@ Delete stream
 
 
 ##### How to navigate
-![How-to-nav](docs/images/how-to-nav.png)
 * Instead use the `Link` from `browser-router`
 * eg `<Link to="/home">Home<Link/>`
 * It will be transpiled ot `<a>` tags later BUT it will not refresh. 
+![How-to-nav](docs/images/how-to-nav.png)
+1. User needs to navigate to another page in the app
+2. User clicks the `<Link>` tag. NB: not an `<a>`
+3. RRD prevents navigating to a new page
+4. URL stil changes as if normal navigation occured.
+5. Therefore history will see the updated URL and informs RRD about the update
+6. BR matches the URL and communicates it to the Route components
+7. Route components re-render to show a new set of components.
+
+Extra notes: 
+* The SPA term comes from the fact that the page is not changing in anyway. 
+
 
 
 
